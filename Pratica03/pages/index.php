@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Página Inicial</h1>
-    <a style="margin-right: 30px;" href="alunos/home.php">Alunos</a>
-    <a href="professores/home.php">Professores</a>
+    <a style="margin-right: 30px;" href="/alunos">Alunos</a>
+    <a href="/professores">Professores</a>
 </body>
 </html>

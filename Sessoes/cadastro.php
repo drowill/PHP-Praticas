@@ -10,4 +10,3 @@ $matricula = $_POST['matricula'];
 
 $_SESSION['matricula'] = $matricula;
 
-print_r($_SESSION);

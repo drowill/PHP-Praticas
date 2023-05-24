@@ -3,7 +3,8 @@
 $rotas = [
     '/' => '/pages/home.html',
     '/create' => '/pages/cadastro.html',
-    '/store' => '/cadastro.php'
+    '/store' => '/cadastro.php',
+    '/home' => '/pages/dash.php'
 ];
 
 function rotear ($url, $rotas){

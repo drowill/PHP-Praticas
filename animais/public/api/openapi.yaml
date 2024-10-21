@@ -1,0 +1,107 @@
+openapi: '3.0.1'
+info:
+  title: Cadastro de animais
+  description: Projeto aprendendo APIs e tal, cadastrando animais
+  version: '0.1'
+servers:
+  - url: http://{host}:{porta}/api
+    variables:
+      host: 
+        default: localhost
+      porta:
+        default: '8000'
+paths:
+  /animais:
+    get:
+      summary: Listar animais
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+
+    post:
+      summary: Cadastra animal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nome:
+                  type: string
+                peso:
+                  type: number
+      responses:
+        201:
+          description: OK, animal criado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    description: URI do animal cadastrando
+                    type: string
+
+  /animais/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Acessa um animal.
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  nome:
+                    type: string
+                  peso:
+                    type: number
+        404:
+          description: Animal não encontrado
+
+    delete:
+      summary: Deleta um animal.
+      responses:
+        200:
+          description: OK
+        404:
+          description: Animal não encontrado
+          
+    put:
+      summary: Edita animal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nome:
+                  type: string
+                peso:
+                  type: number      
+      responses:
+        201:
+          description: OK, animal editado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    description: URI do animal editado
+                    type: string
+        404:
+          description: Animal não encontrado
